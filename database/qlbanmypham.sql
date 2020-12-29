@@ -2,10 +2,10 @@
 -- version 4.6.4
 -- https://www.phpmyadmin.net/
 --
--- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th12 09, 2020 lúc 04:13 SA
--- Phiên bản máy phục vụ: 5.7.14
--- Phiên bản PHP: 5.6.25
+-- Host: 127.0.0.1
+-- Generation Time: Dec 29, 2020 at 07:40 AM
+-- Server version: 5.7.14
+-- PHP Version: 5.6.25
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -17,42 +17,41 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Cơ sở dữ liệu: `qlbanmypham`
+-- Database: `qlbanmypham`
 --
 
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `admin`
+-- Table structure for table `chitietdh`
 --
 
-CREATE TABLE `admin` (
-  `id_ad` int(11) NOT NULL,
-  `username_ad` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `password_ad` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
-  `email_ad` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `fullname_ad` varchar(255) COLLATE utf8_unicode_ci NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+CREATE TABLE `chitietdh` (
+  `MaDH` int(11) NOT NULL,
+  `TenUS` varchar(50) NOT NULL,
+  `emailUS` varchar(100) NOT NULL,
+  `diachiUS` varchar(200) NOT NULL,
+  `SĐT` int(11) NOT NULL,
+  `ptvc` int(11) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `chitietdh`
+--
+
+INSERT INTO `chitietdh` (`MaDH`, `TenUS`, `emailUS`, `diachiUS`, `SĐT`, `ptvc`) VALUES
+(5, 'ngoc anh', '123@gmail.com', '123 cao lo q8', 1234556897, NULL),
+(6, 'ngoc anh', '123@gmail.com', '123 cao lo q8', 1234556897, NULL),
+(7, 'ngoc anh', '123@gmail.com', '123 cao lo q8', 1234556897, NULL),
+(8, 'ngoc anh', 'phduc99@gmail.com', '123 cao lo q8', 1234556897, NULL),
+(9, 'ngoc anh', 'wonyeong36@gmail.com', '123 cao lo q8', 1234556897, NULL),
+(10, 'HD', 'wonyeong36@gmail.com', '123 cao lo q8', 1234556897, NULL),
+(11, 'ngoc anh', 'wonyeong36@gmail.com', '123 cao lo q8', 1234556897, NULL);
 
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `chitiethoadon`
---
-
-CREATE TABLE `chitiethoadon` (
-  `Id_CTHD` int(11) NOT NULL,
-  `MaHD` int(11) NOT NULL,
-  `TenSP` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `SLuong` int(11) NOT NULL,
-  `TongGia` int(11) NOT NULL,
-  `Status` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
-
--- --------------------------------------------------------
-
---
--- Cấu trúc bảng cho bảng `danhmuc`
+-- Table structure for table `danhmuc`
 --
 
 CREATE TABLE `danhmuc` (
@@ -61,7 +60,7 @@ CREATE TABLE `danhmuc` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Đang đổ dữ liệu cho bảng `danhmuc`
+-- Dumping data for table `danhmuc`
 --
 
 INSERT INTO `danhmuc` (`madm`, `tendm`) VALUES
@@ -72,25 +71,7 @@ INSERT INTO `danhmuc` (`madm`, `tendm`) VALUES
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `hoadon`
---
-
-CREATE TABLE `hoadon` (
-  `MaHD` int(11) NOT NULL,
-  `us_id` int(11) NOT NULL,
-  `TenUS` varchar(100) CHARACTER SET utf8 NOT NULL,
-  `MkUS` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `emaiIUS` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
-  `SDT` int(11) NOT NULL,
-  `diachiUS` varchar(200) CHARACTER SET utf8 NOT NULL,
-  `trangthai` int(11) NOT NULL,
-  `tongtien` double NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
-
--- --------------------------------------------------------
-
---
--- Cấu trúc bảng cho bảng `khachhang`
+-- Table structure for table `khachhang`
 --
 
 CREATE TABLE `khachhang` (
@@ -104,16 +85,18 @@ CREATE TABLE `khachhang` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Đang đổ dữ liệu cho bảng `khachhang`
+-- Dumping data for table `khachhang`
 --
 
 INSERT INTO `khachhang` (`us_id`, `TkUS`, `MkUS`, `TenUS`, `emailUS`, `SDT`, `diachiUS`) VALUES
-(1, 'ling123', '123456789', 'Gia Le', 'giale4545@gmail.com', 389579611, '180 cao lo');
+(1, 'ling123', '123456789', 'Gia Le', 'giale4545@gmail.com', 389579611, '180 cao lo'),
+(2, NULL, NULL, 'ngoc anh', '123@gmail.com', 1234556897, '123 cao lo q8'),
+(3, 'tttttttttttttttttttt', '123455', 'ngoc anh', '123@gmail.com', 1234556897, '123 cao lo q8');
 
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `sanpham`
+-- Table structure for table `sanpham`
 --
 
 CREATE TABLE `sanpham` (
@@ -128,7 +111,7 @@ CREATE TABLE `sanpham` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Đang đổ dữ liệu cho bảng `sanpham`
+-- Dumping data for table `sanpham`
 --
 
 INSERT INTO `sanpham` (`masp`, `tensp`, `gia`, `soluong`, `img`, `mota`, `madm`, `danhgia`) VALUES
@@ -157,84 +140,59 @@ INSERT INTO `sanpham` (`masp`, `tensp`, `gia`, `soluong`, `img`, `mota`, `madm`,
 (23, 'Thanh Lăn Đá Lạnh Massage Đa Năng Dearmay Icy Massager 42g', 102000, 20, 'image\\phụ kiện\\thanhlan', 'Thanh lăn lạnh Dearmay Icy Massager với nhiều công dụng hiệu quả như làm dịu da mệt mỏi tức thì với cảm giác mát lạnh, sảng khoái, giảm sưng, se lỗ chân lông, giúp da đàn hồi hơn.<br>\r\n• Thương hiệu: Dearmay\r\n<br>\r\n• Xuất xứ: Hàn Quốc<br>\r\n\r\n• Khối lượng: 42g<br>\r\n\r\n• Đặc trưng:<br>\r\n\r\n- Thanh lăn lạnh Dearmay Icy Massager mát lạnh cho làn da thư giãn tối đa sau 1 ngày làm việc mệt mỏi.<br>\r\n\r\n- Khả năng giữ lạnh cực tốt giúp se khít lỗ chân lông hiệu quả. <br>\r\n\r\n- Làm dịu, giảm sưng vùng da bị tổn thương mệt mỏi hoặc do côn trùng cắn.<br>\r\n\r\n- Nâng cơ, giúp da đàn hồi, săn chắc và hạn chế quá trình lão hóa da. \r\n\r\n- Hỗ trợ hấp thụ và làm tăng tác dụng của các loại kem dưỡng, mặt nạ,..<br>\r\n\r\n- Sản phẩm được làm từ kim loại cao cấp không rỉ, với thiết kế nhỏ gọn, dễ thao tác và vệ sinh<br>\r\n\r\n• Đối tượng khuyên dùng:<br>\r\n\r\n- Dành cho những bạn thường xuyên bị sưng mặt vào buổi sáng mỗi khi thức dậy \r\n<br>\r\n- Dành cho những bạn đang gặp vấn đề về lỗ chân lông to, đàn hồi kém <br>\r\n\r\n- Dành cho những bạn thường xuyên bị mẩn đỏ do các tác động của môi trường bên ngoài như nhiệt độ cao <br>\r\n\r\n- Dành cho những bạn thường xuyên bị mỏi mắt, tay, chân <br>\r\n\r\n- Dành cho những bạn thường xuyên bị bấm tím chân, tay.<br>\r\n\r\n• Hướng dẫn sử dụng: <br>\r\n\r\n- Đặt thanh lăn lạnh vào ngăn đá tủ lạnh khoảng 1 tiếng<br>\r\n\r\n- Sau khi dùng kem dưỡng, serum,...hoặc mặt nạ, dùng thanh lăn lăn đều khắp mặt theo hướng từ trong ra ngoài ,lăn đều tay cho đến khi kem thấm đều. <br>\r\n\r\n- Rửa lại thanh lăn lạnh bằng nước sạch<br>', 'pk', NULL);
 
 --
--- Chỉ mục cho các bảng đã đổ
+-- Indexes for dumped tables
 --
 
 --
--- Chỉ mục cho bảng `chitiethoadon`
+-- Indexes for table `chitietdh`
 --
-ALTER TABLE `chitiethoadon`
-  ADD PRIMARY KEY (`Id_CTHD`),
-  ADD KEY `MaHD` (`MaHD`);
+ALTER TABLE `chitietdh`
+  ADD PRIMARY KEY (`MaDH`);
 
 --
--- Chỉ mục cho bảng `danhmuc`
+-- Indexes for table `danhmuc`
 --
 ALTER TABLE `danhmuc`
   ADD PRIMARY KEY (`madm`);
 
 --
--- Chỉ mục cho bảng `hoadon`
---
-ALTER TABLE `hoadon`
-  ADD PRIMARY KEY (`MaHD`),
-  ADD KEY `us_id` (`us_id`);
-
---
--- Chỉ mục cho bảng `khachhang`
+-- Indexes for table `khachhang`
 --
 ALTER TABLE `khachhang`
   ADD PRIMARY KEY (`us_id`);
 
 --
--- Chỉ mục cho bảng `sanpham`
+-- Indexes for table `sanpham`
 --
 ALTER TABLE `sanpham`
   ADD PRIMARY KEY (`masp`),
   ADD KEY `madm` (`madm`);
 
 --
--- AUTO_INCREMENT cho các bảng đã đổ
+-- AUTO_INCREMENT for dumped tables
 --
 
 --
--- AUTO_INCREMENT cho bảng `chitiethoadon`
+-- AUTO_INCREMENT for table `chitietdh`
 --
-ALTER TABLE `chitiethoadon`
-  MODIFY `Id_CTHD` int(11) NOT NULL AUTO_INCREMENT;
+ALTER TABLE `chitietdh`
+  MODIFY `MaDH` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 --
--- AUTO_INCREMENT cho bảng `hoadon`
---
-ALTER TABLE `hoadon`
-  MODIFY `MaHD` int(11) NOT NULL AUTO_INCREMENT;
---
--- AUTO_INCREMENT cho bảng `khachhang`
+-- AUTO_INCREMENT for table `khachhang`
 --
 ALTER TABLE `khachhang`
-  MODIFY `us_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `us_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 --
--- AUTO_INCREMENT cho bảng `sanpham`
+-- AUTO_INCREMENT for table `sanpham`
 --
 ALTER TABLE `sanpham`
   MODIFY `masp` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
 --
--- Các ràng buộc cho các bảng đã đổ
+-- Constraints for dumped tables
 --
 
 --
--- Các ràng buộc cho bảng `chitiethoadon`
---
-ALTER TABLE `chitiethoadon`
-  ADD CONSTRAINT `chitiethoadon_ibfk_1` FOREIGN KEY (`MaHD`) REFERENCES `hoadon` (`MaHD`);
-
---
--- Các ràng buộc cho bảng `hoadon`
---
-ALTER TABLE `hoadon`
-  ADD CONSTRAINT `hoadon_ibfk_1` FOREIGN KEY (`us_id`) REFERENCES `khachhang` (`us_id`);
-
---
--- Các ràng buộc cho bảng `sanpham`
+-- Constraints for table `sanpham`
 --
 ALTER TABLE `sanpham`
   ADD CONSTRAINT `sanpham_ibfk_1` FOREIGN KEY (`madm`) REFERENCES `danhmuc` (`madm`);
